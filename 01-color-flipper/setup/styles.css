@@ -198,6 +198,7 @@ main {
   min-height: calc(100vh - 3rem);
   display: grid;
   place-items: center;
+  background-color: var(--bg-color);
 }
 .container {
   text-align: center;
