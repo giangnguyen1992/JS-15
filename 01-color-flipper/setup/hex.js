@@ -21,3 +21,4 @@ function setBgColor() {
 }
 
 btn.addEventListener("click", setBgColor);
+setBgColor();
