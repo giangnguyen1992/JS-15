@@ -72,3 +72,39 @@ const menu = [
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
 ];
+
+const container = document.querySelector(".section-center");
+const filterButton = document.querySelectorAll(".filter-btn");
+
+function printMenu(menu) {
+  menu.forEach((item) => {
+    const itemHTML = `
+      <article class="menu-item">
+        <img src="${item.img}" alt="menu item" class="photo" />
+        <div class="item-info">
+          <header>
+            <h4>${item.title}</h4>
+            <h4 class="price">$${item.price}</h4>
+          </header>
+          <p class="item-text">
+            ${item.desc}
+          </p>
+        </div>
+    </article>`;
+    container.insertAdjacentHTML("beforeend", itemHTML);
+  });
+}
+
+filterButton.forEach((button) => {
+  button.addEventListener("click", function () {
+    const filterId = button.dataset.id;
+    const filteredMenu =
+      filterId == "all"
+        ? menu
+        : menu.filter((item) => filterId == item.category);
+    container.innerHTML = "";
+    printMenu(filteredMenu);
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => printMenu(menu));
