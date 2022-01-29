@@ -29,11 +29,12 @@ function dhm(ms) {
 function setDiffTime() {
   const now = dayjs();
 
-  const different = giveAwayEndDate.diff(now);
-  daysBox.innerText = dhm(different).days;
-  hourBox.innerText = dhm(different).hours;
-  minuteBox.innerText = dhm(different).minutes;
-  secondBox.innerText = dhm(different).sec;
+  const differentInMilli = giveAwayEndDate.diff(now);
+  const differentDate = dhm(differentInMilli);
+  daysBox.innerText = differentDate.days;
+  hourBox.innerText = differentDate.hours;
+  minuteBox.innerText = differentDate.minutes;
+  secondBox.innerText = differentDate.sec;
 }
 
 setDiffTime();
