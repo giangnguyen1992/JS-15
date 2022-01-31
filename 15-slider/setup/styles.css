@@ -228,7 +228,7 @@ Slider
     url("./img-2.jpeg") center/cover no-repeat;
 }
 .btn-container {
-  display: flex;
+  display: none;
   justify-content: center;
   margin-top: 0.75rem;
 }
