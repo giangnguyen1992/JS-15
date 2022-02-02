@@ -1,5 +1,15 @@
-const url = 'https://api.github.com/users/john-smilga/followers?per_page=100'
+const fetchFollowers = async (page) => {
+  const url = new URL("https://api.github.com/users/john-smilga/followers");
+  const followersPerPage = 10;
+  url.searchParams.append("per_page", followersPerPage);
 
-const fetchFollowers = async () => {}
+  if (page) {
+    url.searchParams.append("page", page);
+  }
 
-export default fetchFollowers
+  const followersJSON = await fetch(url.href);
+  const followers = await followersJSON.json();
+  return followers;
+};
+
+export default fetchFollowers;
